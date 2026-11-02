@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ИИ-бот · сделки, биржа, автотрейдер</title>
+<script src="https://unpkg.com/lightweight-charts@4.1.3/dist/lightweight-charts.standalone.production.js"></script>
+<style>
+:root{--bg:#0e1116;--card:#161b22;--b:#262d38;--t:#e6edf3;--m:#8b949e;--g:#3fb950;--r:#f85149;--y:#d29922;--a:#58a6ff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--t);font:15px/1.5 system-ui,Segoe UI,sans-serif}
+header{padding:14px 24px;border-bottom:1px solid var(--b);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+h1{margin:0;font-size:20px}.sub{color:var(--m);font-size:13px}
+.nav button{background:none;border:0;color:var(--m);font-size:15px;padding:8px 14px;cursor:pointer;border-bottom:2px solid transparent}
+.nav button.on{color:var(--a);border-color:var(--a)}
+.wrap{max-width:1250px;margin:0 auto;padding:16px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.tab{background:var(--card);border:1px solid var(--b);color:var(--t);padding:6px 12px;border-radius:8px;cursor:pointer}
+.tab.on{border-color:var(--a);color:var(--a)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-bottom:14px}
+.st{background:var(--card);border:1px solid var(--b);border-radius:10px;padding:12px}.st b{font-size:13px;color:var(--m)}
+.card{background:var(--card);border:1px solid var(--b);border-radius:12px;padding:14px;margin-bottom:12px}
+.row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
+.sym{font-size:18px;font-weight:600}.badge{padding:2px 8px;border-radius:99px;font-size:12px;border:1px solid var(--b);color:var(--m)}
+.open{color:var(--a);border-color:var(--a)}.win{color:var(--g);border-color:var(--g)}.loss{color:var(--r);border-color:var(--r)}
+.lv{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin:10px 0}
+.lv div{background:#0d1117;border-radius:8px;padding:6px 10px;font-size:13px}.lv span{display:block;color:var(--m);font-size:11px}
+p{margin:8px 0;color:#c9d1d9}a{color:var(--a)}code{font-size:12px;color:var(--m);word-break:break-all}
+.warn{background:#2d2208;border:1px solid var(--y);color:var(--y);border-radius:8px;padding:10px;font-size:13px;margin:10px 0}
+.ex{display:grid;grid-template-columns:240px 1fr 300px;gap:12px}
+@media(max-width:1000px){.ex{grid-template-columns:1fr}}
+.pl{background:var(--card);border:1px solid var(--b);border-radius:10px;max-height:680px;overflow:auto}
+.pl h4{margin:0;padding:8px 12px;font-size:12px;color:var(--m);position:sticky;top:0;background:var(--card);border-bottom:1px solid var(--b)}
+.pi{padding:7px 12px;border-bottom:1px solid var(--b);cursor:pointer;font-size:14px}.pi:hover,.pi.on{background:#1f2630}
+.pi small{color:var(--m)}
+#chart{height:520px;background:var(--card);border:1px solid var(--b);border-radius:10px}
+.rp{background:var(--card);border:1px solid var(--b);border-radius:10px;padding:12px;font-size:13px}
+.rp label{display:block;color:var(--m);font-size:12px;margin-top:8px}
+.rp input{width:100%;background:#0d1117;color:var(--t);border:1px solid var(--b);border-radius:6px;padding:5px 8px}
+.kv{display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px dashed var(--b)}
+table{width:100%;border-collapse:collapse;font-size:13px}td,th{padding:6px;border-bottom:1px solid var(--b);text-align:left}th{color:var(--m)}
+</style></head><body>
+<header><h1>🤖 ИИ-бот</h1>
+<div class="nav"><button id="n-deals" onclick="go('deals')">Сделки</button><button id="n-ex" onclick="go('ex')">Биржа</button><button id="n-bot" onclick="go('bot')">Автотрейдер Solana</button><button id="n-trend" onclick="go('trend')">Тренд-портфель</button></div>
+<div class="sub">Bybit + мем-коины Solana · DexScreener, RugCheck, Jupiter</div></header>
+<div class="wrap">
+<div class="warn">Не инвестсовет. Мем-коины — крайне рискованный класс; идеи бумажные, прибыль не гарантируется.</div>
+
+<section id="v-deals"><div class="stats" id="stats"></div><div class="tabs" id="tabs"></div><div id="list">Загрузка…</div></section>
+
+<section id="v-ex" style="display:none">
+ <div class="ex">
+  <div class="pl" id="pairs">Загрузка…</div>
+  <div><div class="tabs" id="tfs" style="margin-top:0"></div><div id="chart"></div>
+   <div class="card" style="margin-top:12px" id="note">Выбери пару слева.</div></div>
+  <div class="rp" id="risk">
+   <b>Риск-менеджмент</b>
+   <label>Депозит, $</label><input id="dep" type="number" value="100" oninput="calc()">
+   <label>Риск на сделку, % депозита</label><input id="rsk" type="number" value="1" step="0.25" oninput="calc()">
+   <div id="rout" style="margin-top:10px"></div>
+  </div>
+ </div>
+</section>
+
+<section id="v-trend" style="display:none"><div id="trend">Загрузка…</div></section>
+<section id="v-bot" style="display:none"><div id="bot">Загрузка…</div></section>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const fmt=n=>n==null?'—':(n>=1e6?(n/1e6).toFixed(2)+'M':n>=1e3?(n/1e3).toFixed(1)+'K':n.toFixed(2));
+const px=n=>n==null?'—':Number(n).toPrecision(6).replace(/\.?0+$/,'');
+const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+let D=null,mode='all',view='deals',P=null,cur=null,CH=null,chart=null,series=null,lines=[];
+function go(v){view=v;['deals','ex','bot','trend'].forEach(k=>{$('v-'+k).style.display=k==v?'':'none';$('n-'+k).classList.toggle('on',k==v)});
+ if(v=='ex'&&!P)loadPairs();if(v=='bot')loadBot();if(v=='trend')loadTrend();}
+/* ---------- Сделки ---------- */
+const ST={open:['в работе','open'],tp2:['TP2 ✅','win'],be:['безубыток','win'],sl:['стоп ❌','loss'],expired:['истёк','']};
+function render(){
+ const m=D.modes;
+ $('stats').innerHTML=Object.keys(m).map(k=>{const s=D.stats[k];return `<div class="st"><b>${m[k]}</b><br>сигналов: ${s.total} · открыто: ${s.open}<br>винрейт: ${s.winrate==null?'—':s.winrate+'%'} · ср. PnL: ${s.avg_pnl==null?'—':s.avg_pnl+'%'}</div>`}).join('');
+ $('tabs').innerHTML=[['all','Все'],...Object.entries(m)].map(([k,v])=>`<button class="tab ${k==mode?'on':''}" onclick="mode='${k}';render()">${v}</button>`).join('');
+ const L=D.signals.filter(s=>mode=='all'||s.mode==mode);
+ $('list').innerHTML=L.length?L.map(s=>{const [t,c]=ST[s.status];const pnl=s.status=='open'?(s.last_price/s.entry-1)*100:s.pnl_pct;
+  return `<div class="card"><div class="row"><div><span class="sym">${esc(s.symbol)}</span> <span class="badge">${m[s.mode]}</span> <span class="badge ${c}">${t}</span> <span class="badge">риск: ${s.risk}</span></div>
+  <div>оценка <b>${s.score}</b>/100 · PnL <b style="color:var(--${pnl>=0?'g':'r'})">${pnl==null?'—':pnl.toFixed(1)+'%'}</b></div></div>
+  <div class="lv"><div><span>Вход</span>${px(s.entry)}</div><div><span>Стоп</span>${px(s.stop)}</div><div><span>TP1</span>${px(s.tp1)}</div><div><span>TP2</span>${px(s.tp2)}</div>
+  <div><span>Ликвидность</span>$${fmt(s.metrics.liq)}</div><div><span>FDV</span>$${fmt(s.metrics.fdv)}</div></div>
+  <p>${esc(s.description)}</p><div class="sub">${new Date(s.ts*1000).toLocaleString('ru')} · <a href="${s.url}" target="_blank">DexScreener</a> · <a href="#" onclick="openChart('${s.mint}','${s.mode}');return false">график</a> · <code>${s.mint}</code></div></div>`}).join(''):'<p>Пока нет сигналов — сканер работает.</p>';
+}
+async function load(){try{D=await (await fetch('/api/signals')).json();render()}catch(e){}}
+/* ---------- Биржа ---------- */
+const ML={scalp:'скальп',day:'дейтрейд',swing:'среднесрок'};
+async function loadPairs(){
+ P=await (await fetch('/api/pairs')).json();
+ const by=P.pairs.filter(p=>p.src=='bybit'),sol=P.pairs.filter(p=>p.src=='solana');
+ const item=(p,i)=>`<div class="pi" id="pi${i}"><b>${esc(p.symbol)}</b> <small>${p.src=='bybit'?(p.cat=='spot'?'spot':'perp ×'+p.leverage):'Solana'}</small><br>${p.modes.map(m=>`<span class="badge" onclick="pick(${i},'${m}')">${ML[m]||m}</span>`).join(' ')}</div>`;
+ $('pairs').innerHTML=`<h4>BYBIT (config.py)</h4>`+by.map(p=>item(p,P.pairs.indexOf(p))).join('')+`<h4>SOLANA (сканер)</h4>`+(sol.map(p=>item(p,P.pairs.indexOf(p))).join('')||'<div class="pi">нет сигналов</div>');
+}
+function openChart(mint,m){go('ex');(P?Promise.resolve():loadPairs()).then(()=>{const i=P.pairs.findIndex(p=>p.mint==mint);if(i>=0)pick(i,m)})}
+async function pick(i,m,tf){
+ const p=P.pairs[i];cur={p,m,tf};
+ document.querySelectorAll('.pi').forEach(e=>e.classList.remove('on'));$('pi'+i).classList.add('on');
+ const q=new URLSearchParams({src:p.src,symbol:p.symbol,cat:p.cat,mint:p.mint||'',mode:m,tf:tf||''});
+ $('note').textContent='Загрузка свечей…';
+ const d=await (await fetch('/api/chart?'+q)).json();
+ if(d.error){$('note').textContent='Ошибка: '+d.error;return}
+ CH=d;draw();
+}
+function draw(){
+ const d=CH,L=d.levels;
+ $('chart').innerHTML='';
+ chart=LightweightCharts.createChart($('chart'),{layout:{background:{color:'#161b22'},textColor:'#8b949e'},grid:{vertLines:{color:'#1f2630'},horzLines:{color:'#1f2630'}},timeScale:{timeVisible:true,secondsVisible:false},rightPriceScale:{borderColor:'#262d38'}});
+ series=chart.addCandlestickSeries({upColor:'#3fb950',downColor:'#f85149',borderVisible:false,wickUpColor:'#3fb950',wickDownColor:'#f85149',priceFormat:{type:'price',precision:L.entry<0.01?8:L.entry<1?5:2,minMove:L.entry<0.01?1e-8:L.entry<1?1e-5:0.01}});
+ series.setData(d.candles.map(c=>({time:c.t,open:c.o,high:c.h,low:c.l,close:c.c})));
+ const vs=chart.addHistogramSeries({priceFormat:{type:'volume'},priceScaleId:'v'});
+ chart.priceScale('v').applyOptions({scaleMargins:{top:.85,bottom:0}});
+ vs.setData(d.candles.map(c=>({time:c.t,value:c.v,color:c.c>=c.o?'#3fb95055':'#f8514955'})));
+ const add=(price,color,title,style)=>price!=null&&series.createPriceLine({price,color,lineWidth:2,lineStyle:style||0,axisLabelVisible:true,title});
+ add(L.entry,'#58a6ff','ВХОД');add(L.stop,'#f85149','СТОП');add(L.tp1,'#3fb950','TP1');add(L.tp2,'#2ea043','TP2');
+ add(L.poc,'#d29922','POC (объём)',2);
+ chart.timeScale().fitContent();
+ $('tfs').innerHTML=[['1','1м'],['15','15м'],['240','4ч']].map(([k,v])=>`<button class="tab ${k==d.tf?'on':''}" onclick="pick(${P.pairs.indexOf(cur.p)},'${cur.m}','${k}')">${v}</button>`).join('')+
+  `<span class="sub" style="align-self:center">${esc(cur.p.symbol)} · ${ML[cur.m]||cur.m} · ${L.side}${L.trend?' · '+L.trend:''}${L.score?' · оценка '+L.score:''}</span>`;
+ $('note').innerHTML=esc(L.note||'');
+ calc();
+}
+function calc(){
+ if(!CH){return}
+ const L=CH.levels,lim=CH.limits,dep=+$('dep').value,rp=+$('rsk').value;
+ if(L.stop==null){$('rout').innerHTML='<p>Нет активного сигнала — уровней нет.</p>';return}
+ const sg=L.side=='LONG'?1:-1,dist=Math.abs(L.entry-L.stop),distPct=dist/L.entry*100;
+ const r1=Math.abs(L.tp1-L.entry)/dist,r2=Math.abs(L.tp2-L.entry)/dist;
+ let riskUsd=dep*rp/100,notional=riskUsd/(distPct/100),capNote='';
+ const isBy=cur.p.src=='bybit';
+ if(isBy&&notional>lim.max_order_usd){notional=lim.max_order_usd;riskUsd=notional*distPct/100;capNote=`<div class="warn">Позиция урезана до MAX_ORDER_USD=$${lim.max_order_usd} (Risk Core).</div>`}
+ if(notional>dep){notional=dep;riskUsd=notional*distPct/100;capNote+=`<div class="warn">Размер ограничен депозитом (без плеча).</div>`}
+ const lev=notional/dep,beWr=100/(1+r2*0.5+r1*0.5);
+ const blended=(r1+r2)/2;
+ const row=(k,v)=>`<div class="kv"><span>${k}</span><b>${v}</b></div>`;
+ $('rout').innerHTML=row('Направление',L.side)+row('Расстояние до стопа',distPct.toFixed(2)+'%')+row('R:R до TP1 / TP2','1:'+r1.toFixed(2)+' / 1:'+r2.toFixed(2))+
+  row('Размер позиции','$'+notional.toFixed(2))+row('Кол-во',(notional/L.entry).toPrecision(5))+row('Макс. убыток','$'+riskUsd.toFixed(2)+' ('+(riskUsd/dep*100).toFixed(2)+'%)')+
+  row('Плечо',lev.toFixed(2)+'×')+row('Прибыль к TP1 / TP2','+$'+(notional*Math.abs(L.tp1-L.entry)/L.entry).toFixed(2)+' / +$'+(notional*Math.abs(L.tp2-L.entry)/L.entry).toFixed(2))+
+  row('Безубыточный винрейт',(100/(1+blended)).toFixed(0)+'%')+capNote+
+  `<p class="sub">План: у TP1 закрыть 50% и стоп в безубыток; остаток до TP2. ${isBy?`Дневной лимит просадки бота ${lim.max_daily_dd}%.`:'DEX: стоп эмулируется ботом, возможен гэп и проскальзывание; для мем-коинов держи риск ≤1% депозита.'}</p>`;
+}
+/* ---------- Тренд-портфель ---------- */
+async function loadTrend(){
+ const d=await (await fetch('/api/trend')).json();const det=d.detail||{};
+ $('trend').innerHTML=`<div class="card"><b>Тренд-портфель (бумажный)</b> — единственная стратегия, прошедшая проверку на непросмотренных данных 2020–2023.<p class="sub">Правило: 4ч, EMA20 против EMA100 → лонг/шорт, размер по волатильности, равные доли 6 монет. Бэктест 2020–2026 с комиссиями и финансированием: Sharpe ≈ 0.9, ≈15%/год, макс. просадка ≈15%, плюс во все 7 лет. Скромное преимущество, не гарантия. Реальное исполнение выключено: при капитале ~$40 портфель неисполним (мин. размеры контрактов).</p>
+ <p>Бумажный капитал (старт 100): <b>${d.equity??'—'}</b> · обновлено ${d.updated||'—'}</p></div>
+ <div class="card"><table><tr><th>Монета</th><th>Направление</th><th>Доля капитала</th><th>Цена</th><th>EMA20</th><th>EMA100</th></tr>
+ ${Object.entries(det).map(([k,v])=>`<tr><td>${k}</td><td style="color:var(--${v.side=='LONG'?'g':'r'})">${v.side}</td><td>${(v.weight*100).toFixed(2)}%</td><td>${v.price}</td><td>${v.ema_fast}</td><td>${v.ema_slow}</td></tr>`).join('')||'<tr><td colspan=6>нет данных</td></tr>'}</table></div>`;
+}
+/* ---------- Автотрейдер ---------- */
+async function loadBot(){
+ const d=await (await fetch('/api/trader')).json();
+ const s=t=>({open:'в позиции',sl:'стоп',be:'безубыток',tp2:'TP2',expired:'истёк',rejected:'отклонён'}[t]||t);
+ $('bot').innerHTML=`<div class="stats">
+  <div class="st"><b>Режим</b><br><span style="color:var(--${d.live?'r':'g'})">${d.live?'LIVE — реальные деньги':'PAPER — бумажный'}</span></div>
+  <div class="st"><b>Горячий кошелёк (для пополнения SOL)</b><br><code>${d.address||'—'}</code><br>баланс: ${d.balance_sol==null?'—':d.balance_sol.toFixed(4)+' SOL'}</div>
+  <div class="st"><b>Risk Core Solana</b><br>сделка ${d.order_sol} SOL · макс. позиций ${d.max_open}<br>мин. оценка ${d.min_score} · режимы ${d.modes.join(', ')}<br>дневной лимит убытка ${d.daily_loss_sol} SOL</div>
+  <div class="st"><b>Итого (закрыто ${d.closed})</b><br>PnL ${d.pnl_sol} SOL · побед ${d.wins}</div></div>
+  <div class="card"><b>Накопленный PnL, SOL</b> <span class="sub">(${d.curve.length} закрытых сделок; ${d.closed<100?'выборка мала — до 100–200 сделок выводов не делать':''})</span><div id="pnl" style="height:220px;margin-top:8px"></div></div>
+  <div class="card"><table><tr><th>Режим</th><th>Закрыто</th><th>Побед</th><th>PnL, SOL</th><th>PnL к вложенному</th></tr>
+  ${Object.entries(d.by_mode).map(([k,v])=>`<tr><td>${k}</td><td>${v.n}</td><td>${v.wins} (${(v.wins/v.n*100).toFixed(0)}%)</td><td style="color:var(--${v.pnl>=0?'g':'r'})">${v.pnl>=0?'+':''}${v.pnl.toFixed(4)}</td><td>${(v.pnl/v.invested*100).toFixed(1)}%</td></tr>`).join('')||'<tr><td colspan=5>нет закрытых сделок</td></tr>'}</table>
+  <p class="sub">Открытых позиций: ${d.open_positions.length}${d.open_positions.length?' ('+d.open_positions.map(x=>x.symbol).join(', ')+')':''}</p></div>
+  <div class="card"><table><tr><th>Время</th><th>Токен</th><th>Режим</th><th>Вход SOL</th><th>Выход SOL</th><th>Статус</th><th>Заметка</th></tr>
+  ${d.trades.map(t=>`<tr><td>${new Date(t.ts*1000).toLocaleString('ru')}</td><td>${esc(t.symbol)}</td><td>${t.mode}</td><td>${t.sol_in}</td><td>${t.sol_out.toFixed(4)}</td><td>${s(t.status)}${t.paper?' (paper)':''}</td><td>${esc(t.note||'')}</td></tr>`).join('')||'<tr><td colspan=7>Сделок пока нет</td></tr>'}</table></div>
+  <p class="sub">Включение LIVE: в .env задать SOL_LIVE=true и пополнить горячий кошелёк небольшой суммой SOL. Приватный ключ лежит в wallets/hot_wallet.json (в .gitignore).</p>`;
+ if(d.curve.length&&window.LightweightCharts){const ch=LightweightCharts.createChart($('pnl'),{layout:{background:{color:'#161b22'},textColor:'#8b949e'},grid:{vertLines:{color:'#1f2630'},horzLines:{color:'#1f2630'}},timeScale:{timeVisible:true},rightPriceScale:{borderColor:'#262d38'}});
+  const s=ch.addLineSeries({color:'#58a6ff',lineWidth:2});let last=0;const pts=[{time:d.curve[0][0]-60,value:0},...d.curve.map(([t,v])=>({time:t,value:v}))].filter(p=>{const ok=p.time>last;last=p.time;return ok});s.setData(pts);ch.timeScale().fitContent()}
+}
+go('deals');load();setInterval(()=>{if(view=='deals')load();if(view=='bot')loadBot()},30000);
+</script></body></html>

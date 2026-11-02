@@ -1,0 +1,10 @@
+.env
+__pycache__/
+*.pyc
+data/*.db
+data/blind/
+data/blind_private/
+logs/
+state/
+wallets/hot_wallet.json
+*.log

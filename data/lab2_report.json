@@ -1,0 +1,1317 @@
+{
+ "generated": "2026-11-02 18:49:50",
+ "cut_day": 20425,
+ "all_configs": 76,
+ "families": 24,
+ "best_by_train": [
+  {
+   "strategy": "ema_cross",
+   "tf": "240",
+   "params": {
+    "f": 20,
+    "s": 100,
+    "both": true
+   },
+   "vol_target": true,
+   "train": {
+    "n": 999,
+    "sharpe": 1.04,
+    "t": 1.71,
+    "ann": 11.8,
+    "mdd": 8.3
+   },
+   "test": {
+    "n": 335,
+    "sharpe": 0.86,
+    "t": 0.83,
+    "ann": 12.8,
+    "mdd": 9.2
+   },
+   "test_h1": {
+    "n": 167,
+    "sharpe": 0.75,
+    "t": 0.5,
+    "ann": 11.8,
+    "mdd": 9.2
+   },
+   "test_h2": {
+    "n": 168,
+    "sharpe": 1.0,
+    "t": 0.68,
+    "ann": 13.9,
+    "mdd": 7.3
+   },
+   "pos_syms": 11,
+   "n_syms": 12,
+   "per_sym": {
+    "BTCUSDT": 18.1,
+    "ETHUSDT": 19.6,
+    "SOLUSDT": 13.2,
+    "XRPUSDT": 14.7,
+    "DOGEUSDT": 29.3,
+    "SUIUSDT": 0.2,
+    "1000PEPEUSDT": -13.2,
+    "WIFUSDT": 7.2,
+    "1000BONKUSDT": 13.3,
+    "FARTCOINUSDT": 23.8,
+    "POPCATUSDT": 9.4,
+    "TRUMPUSDT": 5.8
+   },
+   "works": false
+  },
+  {
+   "strategy": "ema_cross",
+   "tf": "240",
+   "params": {
+    "f": 20,
+    "s": 100,
+    "both": true
+   },
+   "vol_target": false,
+   "train": {
+    "n": 999,
+    "sharpe": 1.12,
+    "t": 1.85,
+    "ann": 67.1,
+    "mdd": 54.8
+   },
+   "test": {
+    "n": 335,
+    "sharpe": 0.48,
+    "t": 0.46,
+    "ann": 27.5,
+    "mdd": 34.7
+   },
+   "test_h1": {
+    "n": 167,
+    "sharpe": 0.5,
+    "t": 0.34,
+    "ann": 31.9,
+    "mdd": 34.7
+   },
+   "test_h2": {
+    "n": 168,
+    "sharpe": 0.46,
+    "t": 0.31,
+    "ann": 23.1,
+    "mdd": 31.6
+   },
+   "pos_syms": 10,
+   "n_syms": 12,
+   "per_sym": {
+    "BTCUSDT": 24.6,
+    "ETHUSDT": 31.0,
+    "SOLUSDT": 23.1,
+    "XRPUSDT": 37.1,
+    "DOGEUSDT": 74.3,
+    "SUIUSDT": -34.5,
+    "1000PEPEUSDT": -63.5,
+    "WIFUSDT": 9.5,
+    "1000BONKUSDT": 46.9,
+    "FARTCOINUSDT": 110.5,
+    "POPCATUSDT": 36.4,
+    "TRUMPUSDT": 7.0
+   },
+   "works": false
+  },
+  {
+   "strategy": "ema_cross_long",
+   "tf": "240",
+   "params": {
+    "f": 20,
+    "s": 100,
+    "both": false
+   },
+   "vol_target": true,
+   "train": {
+    "n": 999,
+    "sharpe": 1.41,
+    "t": 2.33,
+    "ann": 11.2,
+    "mdd": 8.1
+   },
+   "test": {
+    "n": 335,
+    "sharpe": 0.39,
+    "t": 0.37,
+    "ann": 3.8,
+    "mdd": 7.5
+   },
+   "test_h1": {
+    "n": 167,
+    "sharpe": -0.2,
+    "t": -0.13,
+    "ann": -1.8,
+    "mdd": 6.7
+   },
+   "test_h2": {
+    "n": 168,
+    "sharpe": 0.89,
+    "t": 0.6,
+    "ann": 9.4,
+    "mdd": 3.7
+   },
+   "pos_syms": 10,
+   "n_syms": 12,
+   "per_sym": {
+    "BTCUSDT": 6.7,
+    "ETHUSDT": 7.4,
+    "SOLUSDT": 5.2,
+    "XRPUSDT": 1.9,
+    "DOGEUSDT": 10.7,
+    "SUIUSDT": 1.1,
+    "1000PEPEUSDT": 1.9,
+    "WIFUSDT": 2.9,
+    "1000BONKUSDT": -0.6,
+    "FARTCOINUSDT": 10.7,
+    "POPCATUSDT": 2.5,
+    "TRUMPUSDT": -8.4
+   },
+   "works": false
+  },
+  {
+   "strategy": "donchian",
+   "tf": "240",
+   "params": {
+    "N": 100,
+    "both": true
+   },
+   "vol_target": false,
+   "train": {
+    "n": 999,
+    "sharpe": 0.51,
+    "t": 0.85,
+    "ann": 26.5,
+    "mdd": 61.1
+   },
+   "test": {
+    "n": 335,
+    "sharpe": 0.15,
+    "t": 0.15,
+    "ann": 7.6,
+    "mdd": 43.8
+   },
+   "test_h1": {
+    "n": 167,
+    "sharpe": -0.12,
+    "t": -0.08,
+    "ann": -6.4,
+    "mdd": 43.8
+   },
+   "test_h2": {
+    "n": 168,
+    "sharpe": 0.49,
+    "t": 0.33,
+    "ann": 21.5,
+    "mdd": 26.5
+   },
+   "pos_syms": 5,
+   "n_syms": 12,
+   "per_sym": {
+    "BTCUSDT": 33.0,
+    "ETHUSDT": 42.8,
+    "SOLUSDT": 72.4,
+    "XRPUSDT": -26.5,
+    "DOGEUSDT": 63.8,
+    "SUIUSDT": -25.7,
+    "1000PEPEUSDT": -5.7,
+    "WIFUSDT": -21.3,
+    "1000BONKUSDT": -18.0,
+    "FARTCOINUSDT": 3.6,
+    "POPCATUSDT": -18.3,
+    "TRUMPUSDT": -16.4
+   },
+   "works": false
+  },
+  {
+   "strategy": "donchian",
+   "tf": "240",
+   "params": {
+    "N": 20,
+    "both": true
+   },
+   "vol_target": true,
+   "train": {
+    "n": 999,
+    "sharpe": 0.71,
+    "t": 1.18,
+    "ann": 7.2,
+    "mdd": 11.2
+   },
+   "test": {
+    "n": 335,
+    "sharpe": 0.02,
+    "t": 0.02,
+    "ann": 0.3,
+    "mdd": 15.8
+   },
+   "test_h1": {
+    "n": 167,
+    "sharpe": -0.2,
+    "t": -0.13,
+    "ann": -2.9,
+    "mdd": 15.8
+   },
+   "test_h2": {
+    "n": 168,
+    "sharpe": 0.27,
+    "t": 0.18,
+    "ann": 3.4,
+    "mdd": 8.3
+   },
+   "pos_syms": 6,
+   "n_syms": 12,
+   "per_sym": {
+    "BTCUSDT": -3.4,
+    "ETHUSDT": 10.7,
+    "SOLUSDT": 21.5,
+    "XRPUSDT": -9.2,
+    "DOGEUSDT": -14.2,
+    "SUIUSDT": 6.7,
+    "1000PEPEUSDT": 11.8,
+    "WIFUSDT": 2.0,
+    "1000BONKUSDT": -2.7,
+    "FARTCOINUSDT": 10.2,
+    "POPCATUSDT": -16.4,
+    "TRUMPUSDT": -14.1
+   },
+   "works": false
+  },
+  {
+   "strategy": "donchian",
+   "tf": "60",
+   "params": {
+    "N": 55,
+    "both": true
+   },
+   "vol_target": true,
+   "train": {
+    "n": 499,
+    "sharpe": 1.05,
+    "t": 1.23,
+    "ann": 12.6,
+    "mdd": 6.8
+   },
+   "test": {
+    "n": 335,
+    "sharpe": -0.04,
+    "t": -0.04,
+    "ann": -0.5,
+    "mdd": 14.4
+   },
+   "test_h1": {
+    "n": 167,
+    "sharpe": -0.07,
+    "t": -0.04,
+    "ann": -0.9,
+    "mdd": 12.6
+   },
+   "test_h2": {
+    "n": 168,
+    "sharpe": -0.01,
+    "t": -0.01,
+    "ann": -0.1,
+    "mdd": 7.9
+   },
+   "pos_syms": 6,
+   "n_syms": 12,
+   "per_sym": {
+    "BTCUSDT": -13.4,
+    "ETHUSDT": -23.8,
+    "SOLUSDT": 1.4,
+    "XRPUSDT": -13.0,
+    "DOGEUSDT": -9.7,
+    "SUIUSDT": 22.0,
+    "1000PEPEUSDT": 14.9,
+    "WIFUSDT": 15.3,
+    "1000BONKUSDT": -0.3,
+    "FARTCOINUSDT": 6.8,
+    "POPCATUSDT": -19.0,
+    "TRUMPUSDT": 12.9
+   },
+   "works": false
+  },
+  {
+   "strategy": "donchian_long",
+   "tf": "60",
+   "params": {
+    "N": 55,
+    "both": false
+   },
+   "vol_target": true,
+   "train": {
+    "n": 499,
+    "sharpe": 0.82,
+    "t": 0.95,
+    "ann": 7.1,
+    "mdd": 6.5
+   },
+   "test": {
+    "n": 335,
+    "sharpe": -0.07,
+    "t": -0.07,
+    "ann": -0.7,
+    "mdd": 12.4
+   },
+   "test_h1": {
+    "n": 167,
+    "sharpe": -0.22,
+    "t": -0.15,
+    "ann": -2.1,
+    "mdd": 7.5
+   },
+   "test_h2": {
+    "n": 168,
+    "sharpe": 0.07,
+    "t": 0.05,
+    "ann": 0.7,
+    "mdd": 7.1
+   },
+   "pos_syms": 5,
+   "n_syms": 12,
+   "per_sym": {
+    "BTCUSDT": -15.8,
+    "ETHUSDT": -16.1,
+    "SOLUSDT": -3.5,
+    "XRPUSDT": -1.5,
+    "DOGEUSDT": -5.5,
+    "SUIUSDT": 12.3,
+    "1000PEPEUSDT": 17.3,
+    "WIFUSDT": 8.6,
+    "1000BONKUSDT": 6.3,
+    "FARTCOINUSDT": 2.1,
+    "POPCATUSDT": -8.1,
+    "TRUMPUSDT": -4.0
+   },
+   "works": false
+  },
+  {
+   "strategy": "donchian",
+   "tf": "60",
+   "params": {
+    "N": 55,
+    "both": true
+   },
+   "vol_target": false,
+   "train": {
+    "n": 499,
+    "sharpe": 0.32,
+    "t": 0.38,
+    "ann": 19.9,
+    "mdd": 60.4
+   },
+   "test": {
+    "n": 335,
+    "sharpe": -0.09,
+    "t": -0.08,
+    "ann": -4.5,
+    "mdd": 48.8
+   },
+   "test_h1": {
+    "n": 167,
+    "sharpe": -0.06,
+    "t": -0.04,
+    "ann": -3.3,
+    "mdd": 45.5
+   },
+   "test_h2": {
+    "n": 168,
+    "sharpe": -0.13,
+    "t": -0.09,
+    "ann": -5.8,
+    "mdd": 28.2
+   },
+   "pos_syms": 6,
+   "n_syms": 12,
+   "per_sym": {
+    "BTCUSDT": -26.1,
+    "ETHUSDT": -52.9,
+    "SOLUSDT": -10.0,
+    "XRPUSDT": -35.3,
+    "DOGEUSDT": -40.1,
+    "SUIUSDT": 80.3,
+    "1000PEPEUSDT": 49.3,
+    "WIFUSDT": 33.1,
+    "1000BONKUSDT": 6.1,
+    "FARTCOINUSDT": 5.6,
+    "POPCATUSDT": -103.6,
+    "TRUMPUSDT": 43.7
+   },
+   "works": false
+  },
+  {
+   "strategy": "donchian_long",
+   "tf": "60",
+   "params": {
+    "N": 55,
+    "both": false
+   },
+   "vol_target": false,
+   "train": {
+    "n": 499,
+    "sharpe": 0.67,
+    "t": 0.78,
+    "ann": 31.2,
+    "mdd": 46.3
+   },
+   "test": {
+    "n": 335,
+    "sharpe": -0.12,
+    "t": -0.11,
+    "ann": -4.3,
+    "mdd": 42.3
+   },
+   "test_h1": {
+    "n": 167,
+    "sharpe": -0.47,
+    "t": -0.32,
+    "ann": -17.4,
+    "mdd": 28.7
+   },
+   "test_h2": {
+    "n": 168,
+    "sharpe": 0.23,
+    "t": 0.16,
+    "ann": 8.6,
+    "mdd": 20.2
+   },
+   "pos_syms": 4,
+   "n_syms": 12,
+   "per_sym": {
+    "BTCUSDT": -29.6,
+    "ETHUSDT": -39.7,
+    "SOLUSDT": -23.8,
+    "XRPUSDT": -9.8,
+    "DOGEUSDT": -22.4,
+    "SUIUSDT": 45.4,
+    "1000PEPEUSDT": 67.6,
+    "WIFUSDT": 16.5,
+    "1000BONKUSDT": 15.5,
+    "FARTCOINUSDT": -7.4,
+    "POPCATUSDT": -57.7,
+    "TRUMPUSDT": -2.5
+   },
+   "works": false
+  },
+  {
+   "strategy": "ema_cross_long",
+   "tf": "240",
+   "params": {
+    "f": 20,
+    "s": 100,
+    "both": false
+   },
+   "vol_target": false,
+   "train": {
+    "n": 999,
+    "sharpe": 1.78,
+    "t": 2.95,
+    "ann": 75.9,
+    "mdd": 37.4
+   },
+   "test": {
+    "n": 335,
+    "sharpe": -0.16,
+    "t": -0.15,
+    "ann": -5.9,
+    "mdd": 34.0
+   },
+   "test_h1": {
+    "n": 167,
+    "sharpe": -0.62,
+    "t": -0.42,
+    "ann": -21.3,
+    "mdd": 28.1
+   },
+   "test_h2": {
+    "n": 168,
+    "sharpe": 0.25,
+    "t": 0.17,
+    "ann": 9.5,
+    "mdd": 14.0
+   },
+   "pos_syms": 5,
+   "n_syms": 12,
+   "per_sym": {
+    "BTCUSDT": 8.3,
+    "ETHUSDT": 9.0,
+    "SOLUSDT": 0.7,
+    "XRPUSDT": -0.4,
+    "DOGEUSDT": 12.9,
+    "SUIUSDT": -32.4,
+    "1000PEPEUSDT": -10.1,
+    "WIFUSDT": -17.8,
+    "1000BONKUSDT": -18.8,
+    "FARTCOINUSDT": 33.4,
+    "POPCATUSDT": -10.0,
+    "TRUMPUSDT": -39.4
+   },
+   "works": false
+  },
+  {
+   "strategy": "donchian_long",
+   "tf": "240",
+   "params": {
+    "N": 100,
+    "both": false
+   },
+   "vol_target": false,
+   "train": {
+    "n": 999,
+    "sharpe": 1.6,
+    "t": 2.64,
+    "ann": 57.8,
+    "mdd": 36.7
+   },
+   "test": {
+    "n": 335,
+    "sharpe": -0.17,
+    "t": -0.17,
+    "ann": -5.4,
+    "mdd": 26.9
+   },
+   "test_h1": {
+    "n": 167,
+    "sharpe": -0.64,
+    "t": -0.43,
+    "ann": -19.0,
+    "mdd": 24.7
+   },
+   "test_h2": {
+    "n": 168,
+    "sharpe": 0.26,
+    "t": 0.17,
+    "ann": 8.2,
+    "mdd": 17.1
+   },
+   "pos_syms": 6,
+   "n_syms": 12,
+   "per_sym": {
+    "BTCUSDT": 5.5,
+    "ETHUSDT": -9.0,
+    "SOLUSDT": 13.4,
+    "XRPUSDT": 0.4,
+    "DOGEUSDT": 4.1,
+    "SUIUSDT": -5.9,
+    "1000PEPEUSDT": 26.0,
+    "WIFUSDT": 10.8,
+    "1000BONKUSDT": -39.2,
+    "FARTCOINUSDT": -17.1,
+    "POPCATUSDT": -29.3,
+    "TRUMPUSDT": -18.6
+   },
+   "works": false
+  },
+  {
+   "strategy": "donchian_long",
+   "tf": "240",
+   "params": {
+    "N": 20,
+    "both": false
+   },
+   "vol_target": true,
+   "train": {
+    "n": 999,
+    "sharpe": 1.36,
+    "t": 2.25,
+    "ann": 10.1,
+    "mdd": 6.4
+   },
+   "test": {
+    "n": 335,
+    "sharpe": -0.18,
+    "t": -0.17,
+    "ann": -1.9,
+    "mdd": 11.8
+   },
+   "test_h1": {
+    "n": 167,
+    "sharpe": -0.98,
+    "t": -0.66,
+    "ann": -9.1,
+    "mdd": 8.6
+   },
+   "test_h2": {
+    "n": 168,
+    "sharpe": 0.46,
+    "t": 0.31,
+    "ann": 5.3,
+    "mdd": 6.1
+   },
+   "pos_syms": 5,
+   "n_syms": 12,
+   "per_sym": {
+    "BTCUSDT": -7.7,
+    "ETHUSDT": 2.1,
+    "SOLUSDT": 9.6,
+    "XRPUSDT": -2.6,
+    "DOGEUSDT": -10.4,
+    "SUIUSDT": 6.8,
+    "1000PEPEUSDT": 10.0,
+    "WIFUSDT": -1.5,
+    "1000BONKUSDT": -0.5,
+    "FARTCOINUSDT": 0.1,
+    "POPCATUSDT": -13.2,
+    "TRUMPUSDT": -13.4
+   },
+   "works": false
+  },
+  {
+   "strategy": "fade_burst",
+   "tf": "60",
+   "params": {
+    "L": 24,
+    "z": 3.5,
+    "H": 24
+   },
+   "vol_target": false,
+   "train": {
+    "n": 499,
+    "sharpe": 1.49,
+    "t": 1.74,
+    "ann": 15.9,
+    "mdd": 5.3
+   },
+   "test": {
+    "n": 335,
+    "sharpe": -0.26,
+    "t": -0.24,
+    "ann": -2.5,
+    "mdd": 10.2
+   },
+   "test_h1": {
+    "n": 167,
+    "sharpe": 0.97,
+    "t": 0.66,
+    "ann": 9.4,
+    "mdd": 5.6
+   },
+   "test_h2": {
+    "n": 168,
+    "sharpe": -1.43,
+    "t": -0.97,
+    "ann": -14.4,
+    "mdd": 10.1
+   },
+   "pos_syms": 5,
+   "n_syms": 12,
+   "per_sym": {
+    "BTCUSDT": -5.5,
+    "ETHUSDT": -13.6,
+    "SOLUSDT": -3.4,
+    "XRPUSDT": 4.1,
+    "DOGEUSDT": -3.1,
+    "SUIUSDT": 9.1,
+    "1000PEPEUSDT": -18.1,
+    "WIFUSDT": -12.4,
+    "1000BONKUSDT": -11.3,
+    "FARTCOINUSDT": 11.4,
+    "POPCATUSDT": 8.3,
+    "TRUMPUSDT": 6.6
+   },
+   "works": false
+  },
+  {
+   "strategy": "bb_revert",
+   "tf": "60",
+   "params": {
+    "n_": 50,
+    "k": 2.5
+   },
+   "vol_target": true,
+   "train": {
+    "n": 499,
+    "sharpe": -2.38,
+    "t": -2.79,
+    "ann": -24.6,
+    "mdd": 35.2
+   },
+   "test": {
+    "n": 335,
+    "sharpe": -0.68,
+    "t": -0.65,
+    "ann": -8.2,
+    "mdd": 16.3
+   },
+   "test_h1": {
+    "n": 167,
+    "sharpe": -0.37,
+    "t": -0.25,
+    "ann": -4.4,
+    "mdd": 11.9
+   },
+   "test_h2": {
+    "n": 168,
+    "sharpe": -1.0,
+    "t": -0.68,
+    "ann": -12.0,
+    "mdd": 10.9
+   },
+   "pos_syms": 3,
+   "n_syms": 12,
+   "per_sym": {
+    "BTCUSDT": -14.7,
+    "ETHUSDT": -11.9,
+    "SOLUSDT": 0.1,
+    "XRPUSDT": -16.3,
+    "DOGEUSDT": 5.7,
+    "SUIUSDT": -9.5,
+    "1000PEPEUSDT": -4.3,
+    "WIFUSDT": -15.1,
+    "1000BONKUSDT": -1.2,
+    "FARTCOINUSDT": -8.3,
+    "POPCATUSDT": 4.6,
+    "TRUMPUSDT": -19.5
+   },
+   "works": false
+  },
+  {
+   "strategy": "fade_burst",
+   "tf": "240",
+   "params": {
+    "L": 6,
+    "z": 3.5,
+    "H": 12
+   },
+   "vol_target": false,
+   "train": {
+    "n": 999,
+    "sharpe": 0.19,
+    "t": 0.32,
+    "ann": 2.9,
+    "mdd": 25.2
+   },
+   "test": {
+    "n": 335,
+    "sharpe": -0.71,
+    "t": -0.68,
+    "ann": -13.9,
+    "mdd": 22.2
+   },
+   "test_h1": {
+    "n": 167,
+    "sharpe": 0.67,
+    "t": 0.45,
+    "ann": 13.1,
+    "mdd": 5.2
+   },
+   "test_h2": {
+    "n": 168,
+    "sharpe": -2.08,
+    "t": -1.41,
+    "ann": -40.7,
+    "mdd": 20.8
+   },
+   "pos_syms": 2,
+   "n_syms": 12,
+   "per_sym": {
+    "BTCUSDT": -15.3,
+    "ETHUSDT": -4.7,
+    "SOLUSDT": -1.7,
+    "XRPUSDT": -29.8,
+    "DOGEUSDT": 1.1,
+    "SUIUSDT": -26.6,
+    "1000PEPEUSDT": -31.6,
+    "WIFUSDT": -6.9,
+    "1000BONKUSDT": -4.5,
+    "FARTCOINUSDT": 17.8,
+    "POPCATUSDT": -32.3,
+    "TRUMPUSDT": -18.5
+   },
+   "works": false
+  },
+  {
+   "strategy": "ema_cross_long",
+   "tf": "60",
+   "params": {
+    "f": 12,
+    "s": 48,
+    "both": false
+   },
+   "vol_target": true,
+   "train": {
+    "n": 499,
+    "sharpe": 0.79,
+    "t": 0.92,
+    "ann": 8.3,
+    "mdd": 7.6
+   },
+   "test": {
+    "n": 335,
+    "sharpe": -0.85,
+    "t": -0.81,
+    "ann": -10.4,
+    "mdd": 15.9
+   },
+   "test_h1": {
+    "n": 167,
+    "sharpe": -1.1,
+    "t": -0.74,
+    "ann": -12.7,
+    "mdd": 9.6
+   },
+   "test_h2": {
+    "n": 168,
+    "sharpe": -0.63,
+    "t": -0.43,
+    "ann": -8.1,
+    "mdd": 8.9
+   },
+   "pos_syms": 1,
+   "n_syms": 12,
+   "per_sym": {
+    "BTCUSDT": -14.3,
+    "ETHUSDT": -7.9,
+    "SOLUSDT": -8.7,
+    "XRPUSDT": -17.8,
+    "DOGEUSDT": -15.7,
+    "SUIUSDT": -5.0,
+    "1000PEPEUSDT": 16.9,
+    "WIFUSDT": -7.3,
+    "1000BONKUSDT": -10.2,
+    "FARTCOINUSDT": -5.0,
+    "POPCATUSDT": -24.4,
+    "TRUMPUSDT": -15.1
+   },
+   "works": false
+  },
+  {
+   "strategy": "ema_cross",
+   "tf": "60",
+   "params": {
+    "f": 12,
+    "s": 48,
+    "both": true
+   },
+   "vol_target": true,
+   "train": {
+    "n": 499,
+    "sharpe": 1.21,
+    "t": 1.42,
+    "ann": 17.4,
+    "mdd": 6.8
+   },
+   "test": {
+    "n": 335,
+    "sharpe": -0.89,
+    "t": -0.85,
+    "ann": -13.9,
+    "mdd": 21.6
+   },
+   "test_h1": {
+    "n": 167,
+    "sharpe": -0.98,
+    "t": -0.67,
+    "ann": -15.8,
+    "mdd": 17.7
+   },
+   "test_h2": {
+    "n": 168,
+    "sharpe": -0.79,
+    "t": -0.54,
+    "ann": -11.9,
+    "mdd": 10.0
+   },
+   "pos_syms": 1,
+   "n_syms": 12,
+   "per_sym": {
+    "BTCUSDT": -27.6,
+    "ETHUSDT": -14.7,
+    "SOLUSDT": -12.9,
+    "XRPUSDT": -24.0,
+    "DOGEUSDT": -22.1,
+    "SUIUSDT": -5.5,
+    "1000PEPEUSDT": 18.2,
+    "WIFUSDT": -9.6,
+    "1000BONKUSDT": -8.8,
+    "FARTCOINUSDT": -3.6,
+    "POPCATUSDT": -40.7,
+    "TRUMPUSDT": -1.6
+   },
+   "works": false
+  },
+  {
+   "strategy": "fade_burst",
+   "tf": "240",
+   "params": {
+    "L": 24,
+    "z": 3.5,
+    "H": 24
+   },
+   "vol_target": true,
+   "train": {
+    "n": 999,
+    "sharpe": 0.06,
+    "t": 0.1,
+    "ann": 0.1,
+    "mdd": 3.7
+   },
+   "test": {
+    "n": 335,
+    "sharpe": -0.98,
+    "t": -0.94,
+    "ann": -3.3,
+    "mdd": 4.4
+   },
+   "test_h1": {
+    "n": 167,
+    "sharpe": 1.22,
+    "t": 0.83,
+    "ann": 2.3,
+    "mdd": 0.7
+   },
+   "test_h2": {
+    "n": 168,
+    "sharpe": -2.02,
+    "t": -1.37,
+    "ann": -8.9,
+    "mdd": 4.4
+   },
+   "pos_syms": 3,
+   "n_syms": 12,
+   "per_sym": {
+    "BTCUSDT": -6.2,
+    "ETHUSDT": -7.1,
+    "SOLUSDT": -5.8,
+    "XRPUSDT": -0.4,
+    "DOGEUSDT": -3.5,
+    "SUIUSDT": 2.2,
+    "1000PEPEUSDT": -4.1,
+    "WIFUSDT": -5.0,
+    "1000BONKUSDT": 3.1,
+    "FARTCOINUSDT": 0.8,
+    "POPCATUSDT": -3.5,
+    "TRUMPUSDT": -7.4
+   },
+   "works": false
+  },
+  {
+   "strategy": "bb_revert",
+   "tf": "60",
+   "params": {
+    "n_": 20,
+    "k": 2.0
+   },
+   "vol_target": false,
+   "train": {
+    "n": 499,
+    "sharpe": -1.29,
+    "t": -1.51,
+    "ann": -70.8,
+    "mdd": 115.9
+   },
+   "test": {
+    "n": 335,
+    "sharpe": -1.02,
+    "t": -0.98,
+    "ann": -51.4,
+    "mdd": 78.1
+   },
+   "test_h1": {
+    "n": 167,
+    "sharpe": -0.87,
+    "t": -0.59,
+    "ann": -46.9,
+    "mdd": 46.7
+   },
+   "test_h2": {
+    "n": 168,
+    "sharpe": -1.21,
+    "t": -0.82,
+    "ann": -55.9,
+    "mdd": 46.5
+   },
+   "pos_syms": 2,
+   "n_syms": 12,
+   "per_sym": {
+    "BTCUSDT": -79.6,
+    "ETHUSDT": -78.5,
+    "SOLUSDT": -71.5,
+    "XRPUSDT": -102.7,
+    "DOGEUSDT": -64.3,
+    "SUIUSDT": -41.1,
+    "1000PEPEUSDT": -39.2,
+    "WIFUSDT": -11.9,
+    "1000BONKUSDT": -59.9,
+    "FARTCOINUSDT": 31.6,
+    "POPCATUSDT": 40.3,
+    "TRUMPUSDT": -89.4
+   },
+   "works": false
+  },
+  {
+   "strategy": "fade_burst",
+   "tf": "60",
+   "params": {
+    "L": 24,
+    "z": 3.5,
+    "H": 24
+   },
+   "vol_target": true,
+   "train": {
+    "n": 499,
+    "sharpe": 0.62,
+    "t": 0.72,
+    "ann": 0.8,
+    "mdd": 1.5
+   },
+   "test": {
+    "n": 335,
+    "sharpe": -1.04,
+    "t": -1.0,
+    "ann": -2.4,
+    "mdd": 3.1
+   },
+   "test_h1": {
+    "n": 167,
+    "sharpe": 0.4,
+    "t": 0.27,
+    "ann": 0.8,
+    "mdd": 1.3
+   },
+   "test_h2": {
+    "n": 168,
+    "sharpe": -2.15,
+    "t": -1.46,
+    "ann": -5.6,
+    "mdd": 2.9
+   },
+   "pos_syms": 2,
+   "n_syms": 12,
+   "per_sym": {
+    "BTCUSDT": -2.9,
+    "ETHUSDT": -4.6,
+    "SOLUSDT": -1.4,
+    "XRPUSDT": -1.5,
+    "DOGEUSDT": -3.0,
+    "SUIUSDT": -0.1,
+    "1000PEPEUSDT": -5.8,
+    "WIFUSDT": -4.1,
+    "1000BONKUSDT": -3.4,
+    "FARTCOINUSDT": -0.0,
+    "POPCATUSDT": 0.0,
+    "TRUMPUSDT": 0.2
+   },
+   "works": false
+  },
+  {
+   "strategy": "ema_cross",
+   "tf": "60",
+   "params": {
+    "f": 12,
+    "s": 48,
+    "both": true
+   },
+   "vol_target": false,
+   "train": {
+    "n": 499,
+    "sharpe": 0.52,
+    "t": 0.61,
+    "ann": 38.7,
+    "mdd": 54.2
+   },
+   "test": {
+    "n": 335,
+    "sharpe": -1.07,
+    "t": -1.02,
+    "ann": -64.4,
+    "mdd": 83.1
+   },
+   "test_h1": {
+    "n": 167,
+    "sharpe": -1.27,
+    "t": -0.86,
+    "ann": -84.3,
+    "mdd": 74.9
+   },
+   "test_h2": {
+    "n": 168,
+    "sharpe": -0.83,
+    "t": -0.56,
+    "ann": -44.7,
+    "mdd": 43.2
+   },
+   "pos_syms": 2,
+   "n_syms": 12,
+   "per_sym": {
+    "BTCUSDT": -51.6,
+    "ETHUSDT": -36.9,
+    "SOLUSDT": -55.5,
+    "XRPUSDT": -64.5,
+    "DOGEUSDT": -77.8,
+    "SUIUSDT": -38.5,
+    "1000PEPEUSDT": 16.6,
+    "WIFUSDT": -69.6,
+    "1000BONKUSDT": -58.8,
+    "FARTCOINUSDT": -72.0,
+    "POPCATUSDT": -228.3,
+    "TRUMPUSDT": 27.2
+   },
+   "works": false
+  },
+  {
+   "strategy": "bb_revert",
+   "tf": "240",
+   "params": {
+    "n_": 50,
+    "k": 2.5
+   },
+   "vol_target": false,
+   "train": {
+    "n": 999,
+    "sharpe": -1.05,
+    "t": -1.74,
+    "ann": -46.1,
+    "mdd": 157.6
+   },
+   "test": {
+    "n": 335,
+    "sharpe": -1.09,
+    "t": -1.05,
+    "ann": -52.0,
+    "mdd": 59.3
+   },
+   "test_h1": {
+    "n": 167,
+    "sharpe": -0.84,
+    "t": -0.57,
+    "ann": -43.0,
+    "mdd": 52.7
+   },
+   "test_h2": {
+    "n": 168,
+    "sharpe": -1.4,
+    "t": -0.95,
+    "ann": -61.0,
+    "mdd": 38.0
+   },
+   "pos_syms": 0,
+   "n_syms": 12,
+   "per_sym": {
+    "BTCUSDT": -20.1,
+    "ETHUSDT": -20.8,
+    "SOLUSDT": -59.2,
+    "XRPUSDT": -7.6,
+    "DOGEUSDT": -21.5,
+    "SUIUSDT": -87.6,
+    "1000PEPEUSDT": -42.8,
+    "WIFUSDT": -24.6,
+    "1000BONKUSDT": -97.9,
+    "FARTCOINUSDT": -113.0,
+    "POPCATUSDT": -47.4,
+    "TRUMPUSDT": -30.6
+   },
+   "works": false
+  },
+  {
+   "strategy": "ema_cross_long",
+   "tf": "60",
+   "params": {
+    "f": 12,
+    "s": 48,
+    "both": false
+   },
+   "vol_target": false,
+   "train": {
+    "n": 499,
+    "sharpe": 0.64,
+    "t": 0.75,
+    "ann": 35.3,
+    "mdd": 51.5
+   },
+   "test": {
+    "n": 335,
+    "sharpe": -1.14,
+    "t": -1.1,
+    "ann": -51.0,
+    "mdd": 65.5
+   },
+   "test_h1": {
+    "n": 167,
+    "sharpe": -1.78,
+    "t": -1.21,
+    "ann": -78.8,
+    "mdd": 46.3
+   },
+   "test_h2": {
+    "n": 168,
+    "sharpe": -0.52,
+    "t": -0.35,
+    "ann": -23.5,
+    "mdd": 32.5
+   },
+   "pos_syms": 1,
+   "n_syms": 12,
+   "per_sym": {
+    "BTCUSDT": -29.7,
+    "ETHUSDT": -24.7,
+    "SOLUSDT": -38.1,
+    "XRPUSDT": -50.6,
+    "DOGEUSDT": -62.1,
+    "SUIUSDT": -34.1,
+    "1000PEPEUSDT": 29.5,
+    "WIFUSDT": -55.5,
+    "1000BONKUSDT": -70.8,
+    "FARTCOINUSDT": -54.7,
+    "POPCATUSDT": -140.0,
+    "TRUMPUSDT": -31.2
+   },
+   "works": false
+  },
+  {
+   "strategy": "bb_revert",
+   "tf": "240",
+   "params": {
+    "n_": 50,
+    "k": 2.5
+   },
+   "vol_target": true,
+   "train": {
+    "n": 999,
+    "sharpe": -1.21,
+    "t": -2.0,
+    "ann": -10.6,
+    "mdd": 33.0
+   },
+   "test": {
+    "n": 335,
+    "sharpe": -1.52,
+    "t": -1.45,
+    "ann": -19.3,
+    "mdd": 20.8
+   },
+   "test_h1": {
+    "n": 167,
+    "sharpe": -1.13,
+    "t": -0.76,
+    "ann": -14.6,
+    "mdd": 14.2
+   },
+   "test_h2": {
+    "n": 168,
+    "sharpe": -1.93,
+    "t": -1.31,
+    "ann": -23.9,
+    "mdd": 13.6
+   },
+   "pos_syms": 0,
+   "n_syms": 12,
+   "per_sym": {
+    "BTCUSDT": -14.0,
+    "ETHUSDT": -13.0,
+    "SOLUSDT": -27.8,
+    "XRPUSDT": -9.5,
+    "DOGEUSDT": -14.6,
+    "SUIUSDT": -27.8,
+    "1000PEPEUSDT": -17.1,
+    "WIFUSDT": -10.0,
+    "1000BONKUSDT": -25.6,
+    "FARTCOINUSDT": -23.3,
+    "POPCATUSDT": -15.4,
+    "TRUMPUSDT": -13.9
+   },
+   "works": false
+  }
+ ],
+ "seconds": 230.4
+}
